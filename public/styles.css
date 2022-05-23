@@ -45,6 +45,10 @@ body {
     height: 20vh;
 }
 
+.spacing.smol {
+    height: 1vh;
+}
+
 .articles {
     padding: 3rem;
     margin: 1rem;

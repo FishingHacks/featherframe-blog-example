@@ -1,32 +1,34 @@
 import { html, render, requireCSS, setTitle } from "/framework";
 
 import Article from "/components/article.js";
+import Navbar from "/components/navbar.js";
 
 requireCSS("/styles.css");
 
-setTitle("Blog")
+setTitle("Blog");
 
-console.log(
-  Article({
-    title: "abc",
-    headline: "def",
-    img: "/art1.jpg",
-  })
-)
+(async function () {
+  let _articles = await fetch(window.location.origin + "/api/articles");
 
-render(()=>html`
-  <nav>
-    <li><a class="title">Blog</a></li>
-    <li style="float: right"><a href="/impress">Impressum</a></li>
-    <li style="float: right"><a class="active" href="/">Home</a></li>
-  </nav>
-  <div class="spacing"></div>
-  <div class="articles">
-    <${Article}/>
-    <${Article}/>
-    <${Article}/>
-    <${Article}/>
-    <${Article}/>
-    <${Article}/>
-  </div>
-`);
+  let articles = await _articles.json();
+
+  let _fetchedArticles = await Promise.all(articles.map(el=>fetch(window.location.origin + "/api/article/"+el)));
+
+  let fetchedArticles = await Promise.all(_fetchedArticles.map(el=>el.json()));
+
+  fetchedArticles = fetchedArticles.map(art=>art.error?art:art.article);
+
+  render(
+    () => html`
+      <${Navbar} />
+      <div class="spacing"></div>
+      <div class="articles">
+        ${
+          fetchedArticles.map(art => {
+            return html`<${Article} img="${art.img}" title="${art.title}" slug="${art.slug}" headline="${art.headline}" />`
+          })
+        }
+      </div>
+    `
+  );
+})();
