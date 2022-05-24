@@ -1,7 +1,9 @@
 import { html, render, requireCSS, setTitle } from "/framework";
 
-import Article from "/components/article.js";
-import Navbar from "/components/navbar.js";
+import Article from "../components/article.js";
+import Navbar from "../components/navbar.js";
+
+// Because this is global, i should've put it into the index.html file, but I mean, idc
 
 requireCSS("/styles.css");
 

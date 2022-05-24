@@ -1,6 +1,6 @@
 import { render, setTitle, html, requireCSS } from "/framework";
 
-import Navbar from "/components/navbar.js";
+import Navbar from "../components/navbar.js";
 
 requireCSS("/styles.css");
 

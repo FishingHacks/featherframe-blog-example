@@ -6,7 +6,7 @@ import {
   matchpath as mp,
 } from "/framework";
 
-import Navbar from "/components/navbar.js";
+import Navbar from "../../components/navbar.js";
 
 requireCSS("/styles.css");
 
