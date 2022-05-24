@@ -37,7 +37,7 @@ nav li a.active {
 }
 
 body {
-    margin: 3px;
+    margin: 0;
     background-image: url("/background.png");
 }
 
@@ -100,4 +100,54 @@ body {
     .spacing {
         height: 5vh;
     }
+}
+
+.loginForm {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginForm form {
+    max-width: 400px;
+    max-height: 700px;
+    background-color: #fff;
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.295);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.loginForm form * {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 3px;
+}
+
+.loginForm form input {
+    padding: 3px;
+    border-radius: 7px;
+    border: 1px black solid;
+}
+
+.loginForm form button {
+    background-color: #4CAF50;
+    padding: 7px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.loginForm form b {
+    display: block;
+    margin-bottom: 0px;
+}
+
+.loginForm form button:hover,
+.loginForm form button:active {
+    background-color: #69c46c;
+    transform: translateY(-1px);
 }
