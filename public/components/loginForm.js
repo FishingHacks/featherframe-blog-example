@@ -1,7 +1,6 @@
 import { html } from "/framework";
 
 export default function loginForm(props = {}) {
-  console.log()
   return html`
   <style>body {overflow: hidden}</style>
     <div class="loginForm">

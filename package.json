@@ -1,0 +1,23 @@
+{
+  "name": "sjuoblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "blog-config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FishingHacks/sjuoblog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FishingHacks/sjuoblog/issues"
+  },
+  "homepage": "https://github.com/FishingHacks/sjuoblog#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "enmap": "^5.9.0"
+  }
+}

@@ -1,153 +1,252 @@
 nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border-radius: 5px;
-    background-color: #333;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(4, 37, 99);
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  left: 0px;
 }
 
 nav li {
-    float: left;
+  float: left;
 }
 
 nav li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 nav li a:hover:not(.active):not(.title) {
-    background-color: #111;
+  background-color: rgba(13, 122, 173, 0.411);
 }
 
 nav li a.title {
-    font-weight: bold;
-    font-size: 150%;
-    margin: 0%;
-    padding: 0%;
-    padding-left: .5em;
-    padding-top: .3em;
+  font-weight: bold;
+  font-size: 150%;
+  margin: 0%;
+  padding: 0%;
+  padding-left: 0.5em;
+  padding-top: 0.3em;
 }
 
 nav li a.active {
-    background-color: #4CAF50;
+  box-shadow: inset rgba(0, 0, 0, 0.1) 2px 2px 2px 2px;
+  background-color: #ffffff28;
 }
 
 body {
-    margin: 0;
-    background-image: url("/background.png");
+  margin: 0;
+  background-image: url("/background.png");
 }
 
 .spacing {
-    height: 20vh;
+  height: 2vh;
 }
 
 .spacing.smol {
-    height: 1vh;
+  height: 1vh;
 }
 
 .articles {
-    padding: 3rem;
-    margin: 1rem;
-    border-radius: 15px;
-    border: rgba(83, 80, 80, 0.13) solid;
-    background-color: rgba(83, 80, 80, 0.301);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+  padding: 1rem;
+  margin: 5rem;
+  border-radius: 15px;
+  background: #0000;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .article {
-    margin: 10px;
-    width: 433px;
-    height: 250px;
-    border-radius: 15px;
-    background-color: rgba(51, 51, 51, 0.288);
-    color: #fff;
-    padding: 7px;
-    background-size: cover;
-    fill-opacity: 120%;
-}
-.article .shadow{
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.329);
-    border-radius: 15px;
-    padding: 7px;
-    transform: translate(-7px, -7px);
-}
-.articles a {
-    padding: 7px;
-    color: white;
-    background-color: #4CAF50;
-    border-radius: 10px;
+  max-height: 300px;
+  margin: 3em;
+  width: 433px;
+  height: fit-content;
+  color: #354a5e;
+  fill-opacity: 120%;
+  overflow: hidden;
+  justify-content: flex-start;
+  background: #fff;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s, transform 0.3s;
+  cursor: pointer;
+  box-shadow: -5px 5px 10px #000;
+  align-items: center;
 }
 
-.article h4 {
-    margin-bottom: 4px;
-    margin-top: 2px;
+.article:hover {
+  box-shadow: -7px 7px 10px #000, 30px -30px 0 var(--shade-color);
+  transform: translate(-30px, 30px);
+}
+
+.art--1 {
+  --shade-color: rgb(125, 227, 176, 0.85);
+}
+
+.art--2 {
+  --shade-color: rgba(44, 171, 225, 0.8);
+}
+
+.art--3 {
+  --shade-color: rgba(197, 76, 46, 0.8);
 }
 
 .article .title {
-    margin-bottom: 12px;
+  width: 95%;
+  padding: 10px;
+  margin: 0px;
 }
 
-@media (max-width: 500px) {
-    .spacing {
-        height: 5vh;
-    }
+.article img {
+  width: fit-content;
+  height: fit-content;
+  max-height: 250px;
+}
+
+.article-big {
+  margin: 4rem;
+  padding: 3rem;
+  background-color: rgba(51, 51, 51, 0.7);
+  border-radius: 15px;
+  border: black solid;
+  background-size: cover;
+}
+
+.article-big *:not(btn) {
+  text-align: center;
+}
+
+.article-big div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.article-big .content {
+  display: block;
+}
+
+.article-big .content,
+.article-big .content * {
+  text-align: left;
+  margin-top: 5vh;
+  color: #fff;
+  line-break: normal;
+  white-space: normal;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.article-big div img {
+  margin-left: 15px;
+  max-height: 40vh;
+  width: fit-content;
+}
+
+.article-big div div.h1 h1 {
+  margin: 0;
+  color: #fff;
+}
+
+.article-big div div.h1 {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding-right: 15px;
+  border: black solid;
+  border-right-width: 5px;
+  border-left-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+}
+
+@media (max-width: 800px) {
+  .spacing {
+    height: 5vh;
+  }
+
+  .articles {
+    border: none;
+    background-color: #00000000;
+  }
 }
 
 .loginForm {
-    width: 100vw;
-    height: 100vh;
+  width: 100vw;
+  height: 100vh;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .loginForm form {
-    max-width: 400px;
-    max-height: 700px;
-    background-color: #fff;
-    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.295);
-    padding: 20px;
-    border-radius: 15px;
+  max-width: 400px;
+  max-height: 700px;
+  background-color: #fff;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.295);
+  padding: 20px;
+  border-radius: 15px;
 }
 
 .loginForm form * {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 3px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 3px;
 }
 
 .loginForm form input {
-    padding: 3px;
-    border-radius: 7px;
-    border: 1px black solid;
+  padding: 3px;
+  border-radius: 7px;
+  border: 1px black solid;
 }
 
 .loginForm form button {
-    background-color: #4CAF50;
-    padding: 7px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+  background-color: #4caf50;
+  padding: 7px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .loginForm form b {
-    display: block;
-    margin-bottom: 0px;
+  display: block;
+  margin-bottom: 0px;
 }
 
 .loginForm form button:hover,
 .loginForm form button:active {
-    background-color: #69c46c;
-    transform: translateY(-1px);
+  background-color: #69c46c;
+  transform: translateY(-1px);
+}
+
+.body {
+  margin: 5rem;
+}
+
+.err {
+  font-weight: bold;
+  bottom: 0;
+  position: fixed;
+  width: 100vw;
+  padding: 10px;
+  background-color: red;
+  color: white;
+}
+
+.btn-delete {
+  background-color: #992929;
+  border-radius: 10px;
+  padding: 12px;
+  color: white;
+  cursor: pointer;
 }

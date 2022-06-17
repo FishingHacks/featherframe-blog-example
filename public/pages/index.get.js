@@ -14,22 +14,39 @@ setTitle("Blog");
 
   let articles = await _articles.json();
 
-  let _fetchedArticles = await Promise.all(articles.map(el=>fetch(window.location.origin + "/api/article/"+el)));
+  let _fetchedArticles = await Promise.all(
+    articles.map((el) => fetch(window.location.origin + "/api/article/" + el))
+  );
 
-  let fetchedArticles = await Promise.all(_fetchedArticles.map(el=>el.json()));
+  let fetchedArticles = await Promise.all(
+    _fetchedArticles.map((el) => el.json())
+  );
 
-  fetchedArticles = fetchedArticles.map(art=>art.error?art:art.article);
+  fetchedArticles = fetchedArticles.map((art) =>
+    art.error ? art : art.article
+  );
 
   render(
     () => html`
+      ${new URL(window.location.href).searchParams.get("err")
+        ? html`<div class="err">
+            Error: ${new URL(window.location.href).searchParams.get("err")}
+          </div>`
+        : []}
       <${Navbar} />
       <div class="spacing"></div>
       <div class="articles">
-        ${
-          fetchedArticles.map(art => {
-            return html`<${Article} img="${art.img}" title="${art.title}" slug="${art.slug}" headline="${art.headline}" />`
-          })
-        }
+        ${fetchedArticles.length > 0
+          ? fetchedArticles.map((art, i) => {
+              return html`<${Article}
+                i=${i}
+                img="${art.img}"
+                title="${art.title}"
+                slug="${art.slug}"
+                headline="${art.headline}"
+              />`;
+            })
+          : html`<h1>No Articles were found</h1>`}
       </div>
     `
   );

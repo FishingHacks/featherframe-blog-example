@@ -1,22 +1,3 @@
-module.exports = (req, res) => res.json([
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-    "1-lorem-ipsum-dolor-sit-amet-consecetur-abc",
-])
+const { listArticles } = require("../../helpers/db");
+
+module.exports = (req, res) => res.json((listArticles() || []).slice(0, 18).map(el=>el.slug || ""));

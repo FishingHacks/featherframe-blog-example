@@ -1,3 +1,5 @@
 const {urlencoded} = require("body-parser");
 
-module.exports = urlencoded();
+module.exports = urlencoded({
+    extended: false
+});
