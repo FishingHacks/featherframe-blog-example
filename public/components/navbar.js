@@ -14,7 +14,7 @@ export default async function Navbar() {
       ${(await window.cookieStore.get("auth"))?.value
         ? html`<li style="float: right">
             <a
-              class="${window.location.pathname == "/creare" ? "active" : ""}"
+              class="${window.location.pathname == "/create" ? "active" : ""}"
               href="/create"
               >Create Article</a
             >

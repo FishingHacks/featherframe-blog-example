@@ -18,13 +18,13 @@ render(async () => {
     <div class="body">
       <form action="/article/new" method="post">
         <label for="title">Title: </label>
-        <input type="text" name="title" id="title" />
+        <input class="input" type="text" name="title" id="title" />
         <br />
         <label for="content">Content (MD): </label>
-        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+        <textarea name="content" class="input" id="content" cols="30" rows="10"></textarea>
         <br />
         <label for="img">Image: </label>
-        <input type="url" name="img" id="img" />
+        <input type="url" name="img" class="input" id="img" />
         <br />
         <input type="submit" value="Create" />
       </form>
