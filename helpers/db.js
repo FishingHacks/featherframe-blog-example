@@ -1,5 +1,7 @@
 const Enmap = require("enmap");
 
+console.log(process.cwd());
+
 const db = new Enmap({
   name: "Database",
   autoFetch: true,
@@ -29,7 +31,9 @@ function listArticles() {
 function setToken(token) {
   let tokens = db.get("token") || [];
   if (!(tokens instanceof Array)) tokens = [];
-  tokens.push(token);
+  const dismissal = Date.now();
+  dismissal += 1000 * 60 * 60 * 3;
+  tokens.push({ tok: token, dismissal });
   db.set("token", tokens);
 }
 
@@ -38,12 +42,16 @@ function resetToken(token) {
   if (!(tokens instanceof Array)) tokens = [];
   db.set(
     "token",
-    tokens.filter((el) => el != token)
+    tokens.filter((el) => (el.tok || token) != token)
   );
 }
 
 function verifyToken(token) {
-  let _token = db.get("token").find?.((el) => el == token);
+  let _token = db.get("token").find?.((el) => (el.tok || undefined) == token);
+  if (Date.now() >= _token.dismissal) {
+    resetToken(token);
+    _token = undefined;
+  }
   return _token != null && _token != undefined;
 }
 

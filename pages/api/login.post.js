@@ -1,11 +1,11 @@
-const { user } = require("../../blog-config");
+const { users } = require("../../blog-config");
 const { setToken } = require("../../helpers/db");
 const crypto = require("crypto");
 
 module.exports = (req, res) => {
   if (
-    req?.body?.username == user.name &&
-    req?.body?.password == user.password
+    users.find(el=>el.name == req?.body?.username) &&
+    users.find(el=>el.password == req?.body?.password)
   ) {
     let token = crypto.randomUUID();
     setToken(token);
