@@ -1,19 +1,13 @@
-import { html, render, requireCSS, setTitle } from "/framework";
-
-import Navbar from "../../components/navbar.js";
-
-requireCSS("/styles.css");
-
+import { html, setTitle } from "/framework";
 setTitle("Blog");
 
-render(async () => {
+export async function render () {
   if (!(await window.cookieStore.get("auth"))?.value) {
     window.location.href = window.location.origin + "?err=No+Access";
     return [];
   }
 
   return html`
-    <${Navbar} />
     <div class="spacing" />
     <div class="body">
       <form action="/article/new" method="post">
@@ -30,4 +24,4 @@ render(async () => {
       </form>
     </div>
   `;
-});
+}

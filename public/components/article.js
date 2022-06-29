@@ -1,4 +1,4 @@
-import { html } from "/framework";
+import { html, redirect } from "/framework";
 
 export default function Article(props = {}) {
   if (
@@ -12,7 +12,7 @@ export default function Article(props = {}) {
 
     return html`<div
       class="article art--${Math.floor((Number(props.i) % 3) + 1)}"
-      onclick=${() => (window.location.pathname = `/article/${props.slug}`)}
+      onclick=${() => redirect(location.origin + "/article/" + props.slug)}
     >
       <img src="${props.img}" alt="Title Image" />
       <h4 class="title">${props.title}</h4>

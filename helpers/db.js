@@ -31,7 +31,7 @@ function listArticles() {
 function setToken(token) {
   let tokens = db.get("token") || [];
   if (!(tokens instanceof Array)) tokens = [];
-  const dismissal = Date.now();
+  let dismissal = Date.now();
   dismissal += 1000 * 60 * 60 * 3;
   tokens.push({ tok: token, dismissal });
   db.set("token", tokens);

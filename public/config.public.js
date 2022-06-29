@@ -1,0 +1,3 @@
+const feahterframeConfig = {
+    logEvents: true
+}

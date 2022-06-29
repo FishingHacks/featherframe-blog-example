@@ -9,9 +9,8 @@ module.exports = (req, res) => {
   ) {
     let token = crypto.randomUUID();
     setToken(token);
-    res.cookie("auth", token);
-    res.status(404).redirect("http://localhost:8080/");
+    res.status(200).json({token, error: false});
   } else {
-    res.redirect("/login-failed");
+    res.status(300).json({error: true});
   }
 };
