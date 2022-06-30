@@ -1,4 +1,4 @@
-import { render, html, App, requireCSS } from "/framework";
+const { render, html, App, requireCSS } = require("featherframe");
 import Navbar from "./components/navbar.js";
 
 requireCSS("/styles.css");

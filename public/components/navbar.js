@@ -1,4 +1,4 @@
-import { html, redirect, createContext } from "/framework";
+const { html, redirect, createContext } = require("featherframe");
 import Searchbar from "./search.js";
 
 export default async function Navbar() {

@@ -1,4 +1,4 @@
-import { html, setTitle, useContext, redirect } from "/framework";
+const { html, setTitle, useContext, redirect } = require("featherframe");
 
 import Article from "../components/article.js";
 

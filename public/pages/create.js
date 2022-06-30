@@ -1,4 +1,4 @@
-import { html, setTitle } from "/framework";
+const { html, setTitle } = require("featherframe");
 setTitle("Blog");
 
 export async function render () {

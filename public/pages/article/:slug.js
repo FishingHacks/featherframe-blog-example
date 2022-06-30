@@ -1,10 +1,12 @@
-import {
+const {
   html,
   setTitle,
-  matchpath as mp,
+  matchpath,
   useRef,
   useEffect,
-} from "/framework";
+  goto
+} = require("featherframe");
+const mp = matchpath;
 
 setTitle("Blog");
 
@@ -67,7 +69,10 @@ export async function render() {
         ${(await window.cookieStore.get("auth"))?.value
           ? html`<button
               class="btn-delete"
-              onclick=${() => (window.location = "/deleteArticle?slug=" + SLUG)}
+              onclick=${async () => {
+                await fetch(window.location.origin + "/deleteArticle?slug="+encodeURIComponent(SLUG));
+                goto("");
+              }}
             >
               Delete
             </button>`

@@ -1,4 +1,4 @@
-import { html, redirect } from "/framework";
+const { html, redirect } = require("featherframe");
 
 export default function Article(props = {}) {
   if (
@@ -9,7 +9,6 @@ export default function Article(props = {}) {
     props.i != undefined &&
     !isNaN(Number(props.i))
   ) {
-
     return html`<div
       class="article art--${Math.floor((Number(props.i) % 3) + 1)}"
       onclick=${() => redirect(location.origin + "/article/" + props.slug)}

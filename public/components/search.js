@@ -1,4 +1,4 @@
-import { html, useRef } from "/framework";
+const { html, useRef } = require("featherframe");
 
 export default function Searchbar({
   class: cls = "",

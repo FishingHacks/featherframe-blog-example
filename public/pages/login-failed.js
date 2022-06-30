@@ -1,4 +1,4 @@
-import { html } from "/framework";
+const { html } = require("featherframe");
 
 import loginForm from "../components/loginForm.js";
 

@@ -1,4 +1,4 @@
-import { setTitle, html } from "/framework";
+const { setTitle, html } = require("featherframe");
 
 setTitle("Blog");
 

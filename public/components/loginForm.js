@@ -1,4 +1,4 @@
-import { redirect } from "/framework";
+const { redirect } = require("featherframe");
 import { html, useRef } from "/framework";
 
 export default function loginForm(props = {}, children) {
